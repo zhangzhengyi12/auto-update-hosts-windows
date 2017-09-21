@@ -1,0 +1,17 @@
+{
+  "name": "auto-update-hosts",
+  "version": "1.0.0",
+  "description": "自动更新翻墙hosts",
+  "main": "main.js",
+  "scripts": {
+    "test": "hosts"
+  },
+  "keywords": [
+    "hosts"
+  ],
+  "author": "zhangzhengyi12@live.com",
+  "license": "ISC",
+  "dependencies": {
+    "request": "^2.82.0"
+  }
+}
