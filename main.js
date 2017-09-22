@@ -2,7 +2,7 @@ const request = require("request");
 const fs = require("fs");
 const path = require("path");
 const winddowsPath = `C:${path.sep}Windows${path.sep}system32${path.sep}drivers${path.sep}etc`
-const downloadURI = "https://raw.githubusercontent.com/sy618/hosts/master/FQ";
+const downloadURI = "https://raw.githubusercontent.com/googlehosts/hosts/master/hosts-files/hosts";
 const zipName = "hosts"
 
 
