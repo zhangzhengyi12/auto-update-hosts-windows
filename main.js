@@ -1,18 +1,19 @@
-const request = require("request");
-const fs = require("fs");
-const path = require("path");
+const request = require("request")
+const fs = require("fs")
+const path = require("path")
 const winddowsPath = `C:${path.sep}Windows${path.sep}system32${path.sep}drivers${path.sep}etc`
-const downloadURI = "https://raw.githubusercontent.com/googlehosts/hosts/master/hosts-files/hosts";
+const downloadURI = "https://coding.net/u/scaffrey/p/hosts/git/raw/master/hosts-files/hosts"
 const zipName = "hosts"
 
 
 function downloadFilePromisify(uri, filename) {
   return new Promise((resolve, reject) => {
     let stream = fs.createWriteStream(filename)
+    console.log("DownLoading.......")
     request(uri)
       .pipe(stream)
       .on("close", () => {
-        console.log("下载成功")
+        console.log("DownLoading success")
         resolve("download")
       })
   })
@@ -34,7 +35,7 @@ function moveFilePromisify(filePath, toPath,fileName) {
     let readHostsStream = fs.createReadStream(sourcePath)
     let writeHostsStream = fs.createWriteStream(destPath)
     readHostsStream.pipe(writeHostsStream)
-    console.log('完成....... ✔')
+    console.log('Completed....... ✔')
     resolve('move')
   })
 }
@@ -44,14 +45,14 @@ function moveFilePromisify(filePath, toPath,fileName) {
 
 
 function updateHostsFile() {
+  console.log('Make sure to run under administrator privileges');
   downloadFilePromisify(downloadURI, zipName)
     .then((mess) => {
-      return moveFilePromisify('',winddowsPath,'hosts')
-    })  
+      return moveFilePromisify('', winddowsPath, 'hosts')
+    })
 }
 
-updateHostsFile()
-
+module.exports = updateHostsFile
 
 
 
