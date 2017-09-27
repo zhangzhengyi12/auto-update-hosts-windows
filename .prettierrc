@@ -1,0 +1,6 @@
+{
+  prettier.tabWidth: 2,
+  prettier.singleQuote: true,
+  prettier.trailingComm: all,
+  prettier.semi: false
+}

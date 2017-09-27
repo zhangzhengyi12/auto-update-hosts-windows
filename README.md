@@ -4,10 +4,22 @@
 
 # 安装 #
 
-` npm i update-hosts`
-` npm run up`
+` npm i update-hosts -g`
+
+` up-hosts `
 
 如果提示权限不足，请在管理员命令行下执行此程序
 
+# 历史 #
 
-hosts 源地址 [https://raw.githubusercontent.com/googlehosts/hosts/master/hosts-files/hosts](https://coding.net/u/scaffrey/p/hosts/git/blob/master/hosts-files/hosts)
+- v 0.1.4 修正powsershell默认打开hosts文件导致命令冲突，修正为 `up-hosts` 
+
+# 版权 #
+
+本工具只做简单的下载及搬运替换功能,所有版权或协议遵守原项目
+
+感谢 hosts原作者 @googlehosts
+
+项目原地址 [https://github.com/googlehosts/hosts](https://github.com/googlehosts/hosts)
+
+hosts 源地址 [https://coding.net/u/scaffrey/p/hosts/git/blob/master/hosts-files/hosts](https://coding.net/u/scaffrey/p/hosts/git/blob/master/hosts-files/hosts)
