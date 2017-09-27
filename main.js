@@ -1,12 +1,10 @@
 const request = require('request')
 const fs = require('fs')
 const path = require('path')
-const readLine = require('readline')
 const winddowsPath = `C:${path.sep}Windows${path.sep}system32${path.sep}drivers${path.sep}etc`
 const downloadURI =
   'https://coding.net/u/scaffrey/p/hosts/git/raw/master/hosts-files/hosts'
 const zipName = 'hosts'
-
 function downloadFilePromisify(uri, filename) {
   return new Promise((resolve, reject) => {
     let stream = fs.createWriteStream(filename)
@@ -19,15 +17,6 @@ function downloadFilePromisify(uri, filename) {
       })
   })
 }
-
-function unZipFilePromisify(filePath, unzipPath) {
-  return new Promise((resolve, reject) => {
-    let unzip = new admZip(filePath)
-    unzip.extractAllTo(unzipPath, true)
-    resolve()
-  })
-}
-
 function moveFilePromisify(filePath, toPath, fileName) {
   return new Promise((resolve, reject) => {
     let sourcePath = path.join(filePath, fileName)
@@ -48,7 +37,6 @@ function moveFilePromisify(filePath, toPath, fileName) {
     readHostsStream.pipe(writeHostsStream)
   })
 }
-
 function readFileHeader(file, headerName, endByte) {
   return new Promise((resolve, reject) => {
     let filePath = path.join(file)
@@ -66,7 +54,6 @@ function readFileHeader(file, headerName, endByte) {
     })
   })
 }
-
 function updateHostsFile() {
   console.log('Make sure to run under administrator privileges')
   downloadFilePromisify(downloadURI, zipName)
@@ -77,5 +64,4 @@ function updateHostsFile() {
       return moveFilePromisify('', winddowsPath, 'hosts')
     })
 }
-
 module.exports = updateHostsFile
