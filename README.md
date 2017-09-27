@@ -13,6 +13,7 @@
 # 历史 #
 
 - v 0.1.4 修正powsershell默认打开hosts文件导致命令冲突，修正为 `up-hosts` 
+- v 0.2.4 增加权限错误提示，增加ANSI Color,增加显示Hosts文件修改信息
 
 # 版权 #
 

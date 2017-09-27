@@ -10,11 +10,11 @@ const zipName = 'hosts'
 function downloadFilePromisify(uri, filename) {
   return new Promise((resolve, reject) => {
     let stream = fs.createWriteStream(filename)
-    console.log('DownLoading.......')
+    console.log('\x1b[32m','DownLoading.......')
     request(uri)
       .pipe(stream)
       .on('close', () => {
-        console.log('DownLoading success')
+        console.log('\x1b[32m','DownLoading success')
         resolve()
       })
   })
@@ -36,12 +36,12 @@ function moveFilePromisify(filePath, toPath, fileName) {
     let writeHostsStream = fs.createWriteStream(destPath)
     // error handle
     writeHostsStream.on('error', err => {
-      console.log('File write error, please ensure permissions')
+      console.log('\x1b[31m','File write error, please ensure permissions')
       return
       writeHostsStream.close()
     })
     writeHostsStream.on('close', err => {
-      console.log('Completed....... ✔')
+      console.log('\x1b[32m','Completed....... ✔')
       resolve()
     })
     // eror
@@ -60,7 +60,7 @@ function readFileHeader(file, headerName, endByte) {
         console.log('下载文件错误')
         return
       } else {
-        console.log(reslut)
+        console.log('\x1b[32m',reslut)
         resolve()
       }
     })
